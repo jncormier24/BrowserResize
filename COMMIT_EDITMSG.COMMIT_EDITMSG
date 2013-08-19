@@ -1,0 +1,24 @@
+Found a cool function that might help
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/window.js b/window.js
+new file mode 100644
+index 0000000..073363b
+--- /dev/null
++++ b/window.js
+@@ -0,0 +1,11 @@
++$(window).resize(function() {
++    if(this.resizeTO) clearTimeout(this.resizeTO);
++    this.resizeTO = setTimeout(function() {
++        $(this).trigger('resizeEnd');
++    }, 500);
++});
++
++$(window).bind('resizeEnd', function() {
++    $("#width").text($(this).width());
++    $("#height").text($(this).height());
++});
+\ No newline at end of file

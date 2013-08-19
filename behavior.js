@@ -3,23 +3,28 @@ var screenSize;
 var number = 0;
 var done;
 var open;
+$(window).resize( function(){
+		screenWidth = $(window).width();
+		sceenSize = getScreenSize( screenWidth );
+	});
 $(document).ready( function(){
 	//get the screen width and height. Also instantiate the screenSize variable
 	screenWidth = $(window).width();
 	done = false;
 	open = false;
 	$( "#width" ).text( screenWidth );
+	$( "#size" ).text( getScreenSize( screenWidth ) );
 
 
 	//set the width, height and size text variables
-	$(window).resize( function(){
+	$(window).bind('resizeEnd', function(){
 		screenWidth = $(window).width();
 		sceenSize = getScreenSize( screenWidth );
-
 		$( "#width" ).text( screenWidth );
 		$( "#size" ).text( getScreenSize( screenWidth ) );
 		doActions( getScreenSize( screenWidth ) );
 	});
+	
 });
 
 var getScreenSize = function( screenWidth ){
@@ -50,12 +55,9 @@ var doActions = function( screenSize ){
 		case 'large':
 			$( 'body' ).css( "background-color", "white" );
 			$( '#display' ).click( function(){
-				if( false === done ){
-					number += 1;
-					console.log( number );
-					$( '#div1' ).animate({width: 'toggle'}, 1);
-					done = true;
-				}
+				number += 1;
+				console.log( number );
+				$( '#div1' ).animate({width: 'toggle'});
 			});
 			
 	}
