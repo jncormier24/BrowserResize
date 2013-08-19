@@ -1,0 +1,15 @@
+#sizes ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#div1{
+	display:                none;
+    position:               absolute;
+    width:                  50%;
+    background-color:       #05311b;
+    z-index:                10;
+    -webkit-box-shadow:     3px 3px 5px 6px #000;
+    -moz-box-shadow:        1px 1px 5px 6px #000;
+    box-shadow:             3px 3px 5px 6px #000;
+}
